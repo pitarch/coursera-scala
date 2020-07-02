@@ -117,7 +117,7 @@ object ParallelCountChange extends ParallelCountChangeInterface {
     if (threshold(money, coins)) countChange(money, coins)
     else coins match {
       case coin :: coinTail if money >= coin =>
-        println(s"parCountChange(money:$money, coins:$coins)")
+//        println(s"parCountChange(money:$money, coins:$coins)")
         val resultTuple = parallel(parCountChange(money - coin, coins, threshold), parCountChange(money, coinTail, threshold))
         resultTuple._1 + resultTuple._2
       case coin :: coinTail if money < coin =>
